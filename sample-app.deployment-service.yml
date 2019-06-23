@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: sample-app
-          image: nguyentientuan161090/test:v1 #this is where to make your changes
+          image: gcr.io/ancient-vortex-243611/sample-app:v1 #this is where to make your changes
           env:
             - name: APP_NAME
               value: "sample-app"
