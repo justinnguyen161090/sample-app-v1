@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sample-app
+  labels:
+    app: sample-app
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+        - name: sample-app
+          image: nguyentientuan161090/test:v1 #this is where to make your changes
+          env:
+            - name: APP_NAME
+              value: "sample-app"
+            - name: TEST_ME
+              value: "Hello, world!"
+            - name: PORT
+              value: "4444"
+          ports:
+            - containerPort: 4444
+              name: sample-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-app
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: sample-app
+  selector:
+    app: sample-app
