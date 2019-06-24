@@ -35,6 +35,7 @@
 	create 'Cloud Build' (config Dockerfile/cloudbuild.yaml ...) 
 	if success then store in 'Container Registry' or github.
 	'Cloud Run' deploy to k8s???
+	'Cloud Code'?
 	
 	***if use Dockerfile, then build succes, copy image name new to deploy.yml and pllay change
 
