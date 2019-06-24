@@ -1,3 +1,2 @@
-app-controller.yaml
-app-service.yaml
+sample-app.deployment-service.yml
 node_modules
