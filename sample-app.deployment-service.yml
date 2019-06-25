@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: sample-app
-          image: gcr.io/ancient-vortex-243611/sample-app@sha256:fbefc5ca062b42c5ea4eb6669d5c4e5921f848b828cf8f62c76bc03591bb7aa9 #this is where to make your changes
+          image: gcr.io/$PROJECT_ID/$REPO_NAME:$BUILD_ID #this is where to make your changes
           env:
             - name: APP_NAME
               value: "sample-app"
