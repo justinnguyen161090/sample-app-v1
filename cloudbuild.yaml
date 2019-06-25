@@ -18,9 +18,9 @@ steps:
   args:
     - set
     - image
-    - deployment
-    - deployment.apps/sample-app
-    - deployment.apps/sample-app=gcr.io/$PROJECT_ID/$REPO_NAME:$_VERSION
+    # - deployment
+    - deployment/sample-app
+    - sample-app=gcr.io/$PROJECT_ID/$REPO_NAME:$_VERSION
   env:
     - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
     - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
