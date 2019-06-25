@@ -8,7 +8,7 @@ var moment = require('moment');
 var port = process.env.PORT || 3000;
 
 function handleRequest (request, response) {
-  response.end('[' + hostname + '] TuanNT test local 123 Serving requests from myapp. Request URL:' + request.url);
+  response.end('[' + hostname + '] TuanNT test at home Serving requests from myapp. Request URL:' + request.url);
 }
 
 var server = http.createServer(handleRequest);
