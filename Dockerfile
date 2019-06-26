@@ -1,11 +1,8 @@
-FROM node:alpine AS builder
+# FROM node:alpine AS builder
 
-WORKDIR /app
+# WORKDIR /app
 
-ADD package.json /app/package.json
-# RUN mkdir -p /usr/src/app
-# WORKDIR /usr/src/app
-# ADD package.json /usr/src/app/package.json
+# ADD package.json /app/package.json
 
 
 # Runtime image from here
