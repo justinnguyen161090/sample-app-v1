@@ -1,14 +1,14 @@
-# FROM node:alpine AS builder
+FROM node:alpine AS builder
 
-# WORKDIR /app
+WORKDIR /app
 
-# ADD package.json /app/package.json
+ONBUILD ADD package.json /app/package.json
 
 
 # Runtime image from here
 FROM node:alpine
 
-EXPOSE 3000
+# EXPOSE 3000
 
 WORKDIR /app
 
