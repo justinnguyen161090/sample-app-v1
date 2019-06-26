@@ -12,10 +12,10 @@ FROM node:alpine
 
 WORKDIR /app
 
-COPY --from=builder /app .
+ONBUILD COPY --from=builder /app .
 
-ADD server.js /app/server.js
+ONBUILD ADD server.js /app/server.js
 
-RUN npm install --production
+ONBUILD RUN npm install --production
 
 ENTRYPOINT ["node", "server.js"]
