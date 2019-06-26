@@ -2,7 +2,7 @@ FROM node:alpine AS builder
 
 WORKDIR /app
 
-ONBUILD ADD package.json /app/package.json
+ADD package.json /app/package.json
 
 # Runtime image from here
 FROM node:alpine
