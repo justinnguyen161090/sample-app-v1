@@ -4,7 +4,6 @@ WORKDIR /app
 
 ONBUILD ADD package.json /app/package.json
 
-
 # Runtime image from here
 FROM node:alpine
 
@@ -12,10 +11,10 @@ FROM node:alpine
 
 WORKDIR /app
 
-ONBUILD COPY --from=builder /app .
+COPY --from=builder /app .
 
-ONBUILD ADD server.js /app/server.js
+ADD server.js /app/server.js
 
-ONBUILD RUN npm install --production
+RUN npm install --production
 
 ENTRYPOINT ["node", "server.js"]
