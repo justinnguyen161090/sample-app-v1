@@ -23,16 +23,19 @@ steps:
   args:
   - 'apply'
   - '--filename=sample-app.deployment-service.yml'
-
-- name: 'gcr.io/cloud-builders/kubectl'
-  args:
-    - set
-    - image
-    # - deployment
-    - deployment/sample-app
-    - sample-app=gcr.io/$PROJECT_ID/image:latest
   env:
     - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
     - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
+
+# - name: 'gcr.io/cloud-builders/kubectl'
+#   args:
+#     - set
+#     - image
+#     # - deployment
+#     - deployment/sample-app
+#     - sample-app=gcr.io/$PROJECT_ID/image:latest
+#   env:
+#     - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
+#     - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
 
 images: ['gcr.io/$PROJECT_ID/image:latest']
