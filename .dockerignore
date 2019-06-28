@@ -51,3 +51,4 @@ deploy
 .gitlab-ci.yml
 sample-app.deployment-service.yml
 cloudbuild.yml
+skaffold.yml
