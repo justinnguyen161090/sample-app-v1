@@ -7,3 +7,8 @@ deploy:
   kubectl:
     manifests:
     - sample-app.deployment-service.yml
+profiles:
+  - name: gcb
+    build:
+      googleCloudBuild:
+        projectId: ancient-vortex-243611
