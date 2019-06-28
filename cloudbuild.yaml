@@ -6,7 +6,7 @@ steps:
 #   args: ['$BUILD_ID']
 
 - name: 'gcr.io/cloud-builders/docker'  
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/image', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/image:latest', '.']
 
 # - name: 'gcr.io/cloud-builders/docker' 
 #   args: ['push', 'gcr.io/$PROJECT_ID/$REPO_NAME:$BUILD_ID']
@@ -26,9 +26,9 @@ steps:
     - image
     # - deployment
     - deployment/sample-app
-    - sample-app=gcr.io/$PROJECT_ID/image
+    - sample-app=gcr.io/$PROJECT_ID/image:latest
   env:
     - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
     - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
 
-images: ['gcr.io/$PROJECT_ID/image']
+images: ['gcr.io/$PROJECT_ID/image:latest']
