@@ -1,8 +1,8 @@
-# FROM node:8-alpine AS builder
+FROM node:8-alpine AS builder
 
-# WORKDIR /app
+WORKDIR /app
 
-# ADD package.json /app/package.json
+ADD package.json /app/package.json
 
 # Runtime image from here
 FROM node:8-alpine
@@ -11,8 +11,8 @@ FROM node:8-alpine
 
 WORKDIR /app
 
-# COPY --from=builder /app .
-ADD package.json /app/package.json
+COPY --from=builder /app .
+# ADD package.json /app/package.json
 ADD server.js /app/server.js
 
 RUN npm install --production
