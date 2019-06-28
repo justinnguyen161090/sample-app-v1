@@ -40,7 +40,7 @@ steps:
 
 # images: ['gcr.io/$PROJECT_ID/image']
 
-- name: gcr.io/$PROJECT_ID/skaffold:alpha
+- name: gcr.io/$PROJECT_ID/skaffold
   args: ['run', '-f=skaffold.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
