@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: sample-app
-          image: gcr.io/$PROJECT_ID/image:latest #this is where to make your changes
+          image: gcr.io/$PROJECT_ID/image:$TAG_NAME #this is where to make your changes
           env:
             - name: APP_NAME
               value: "sample-app"
