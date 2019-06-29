@@ -14,17 +14,23 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
     args:
-    - '-c'
-    - | 
-      docker pull gcr.io/$PROJECT_ID/image:latest || exit 0
+      - '-c'
+      - | 
+        docker pull gcr.io/$PROJECT_ID/image:latest || exit 0
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-            'build',
-            '-t', 'gcr.io/$PROJECT_ID/image:latest',
-            '--cache-from', 'gcr.io/$PROJECT_ID/image:latest',
-            '.'
-        ]
+    args: 
+      - 'build'
+      - '-t' 
+      - 'gcr.io/$PROJECT_ID/image:latest'
+      - '-f' 
+      - 'Dockerfile'
+      - '--cache-from' 
+      - 'gcr.io/$PROJECT_ID/image:latest'
+      - '--target'
+      - 'builder'
+      - '.'
+
 images: ['gcr.io/$PROJECT_ID/image:latest']
 # - name: 'gcr.io/cloud-builders/kubectl'
 #   args: ['apply', '-f', 'sample-app.$_DEPLOYMENT.yaml']
