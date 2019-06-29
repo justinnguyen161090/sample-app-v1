@@ -39,9 +39,9 @@
 	
 	a) if use Dockerfile, then build succes, copy image name new to deploy.yml and run 'kubectl apply -f .yml'
 	b) if use cloudbuil.yml , must trigger github/bibuket... steps: build + push image + set images in deployment.
-	c) if use skaffold:
-		*) just: skaffold run -p gcb, will trigger cloud build to build + push image +...
-		*) config to trigger code change???
+	c) if use skaffold:(change code -> build local(docker local) or remote(GCB) -> push Repository-> deploy local(minikube) / GKE)
+		*) just: ctrl + shift + p -> deploy... / skaffold run -p gcb, will trigger build local/ cloud build to build + push image + deploy to minikube/GKE...
+		*) config to trigger code change(GCB) ???
 		*) use 'Cloud Code', > Deploy, ...
 
 	

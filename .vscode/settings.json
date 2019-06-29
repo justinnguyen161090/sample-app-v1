@@ -1,0 +1,10 @@
+{
+    "cloudcode.profile-cluster-map": {
+        "[default]": "gke_ancient-vortex-243611_us-central1-a_standard-cluster-1",
+        "gcb": "gke_ancient-vortex-243611_us-central1-a_standard-cluster-1"
+    },
+    "cloudcode.profile-registry-map": {
+        "[default]": "gcr.io/ancient-vortex-243611",
+        "gcb": "gcr.io/ancient-vortex-243611"
+    }
+}
