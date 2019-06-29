@@ -61,7 +61,7 @@ steps:
 #   - 'gcr.io/$PROJECT_ID/image:latest'
 - name: gcr.io/k8s-skaffold/skaffold
   args: ['gcloud', 'container', 'clusters', 'get-credentials', 'standard-cluster-1',
-         '--zone us-central1-a', '--project ancient-vortex-243611']
+         '--zone', 'us-central1-a', '--project', 'ancient-vortex-243611']
 
 - name: gcr.io/k8s-skaffold/skaffold
   # args: ['skaffold', 'run', '-f', 'skaffold.yaml']
