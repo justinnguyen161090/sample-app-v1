@@ -37,7 +37,12 @@
 	'Cloud Run' deploy to k8s???
 	'Cloud Code'?
 	
-	***if use Dockerfile, then build succes, copy image name new to deploy.yml and pllay change
+	a) if use Dockerfile, then build succes, copy image name new to deploy.yml and run 'kubectl apply -f .yml'
+	b) if use cloudbuil.yml , must trigger github/bibuket... steps: build + push image + set images in deployment.
+	c) if use skaffold:
+		*) just: skaffold run -p gcb, will trigger cloud build to build + push image +...
+		*) config to trigger code change???
+		*) use 'Cloud Code', > Deploy, ...
 
 	
 	
