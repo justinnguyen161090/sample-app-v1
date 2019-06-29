@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: sample-app
-          image: gcr.io/ancient-vortex-243611/image:latest #this is where to make your changes
+          image: gcr.io/ancient-vortex-243611/image #this is where to make your changes
           imagePullPolicy: Always
           env:
             - name: APP_NAME
