@@ -30,9 +30,6 @@ steps:
       # - '--target'
       # - 'builder'
       - '.'
-
-images: 
-  - 'gcr.io/$PROJECT_ID/image:latest'
 # - name: 'gcr.io/cloud-builders/kubectl'
 #   args: ['apply', '-f', 'sample-app.$_DEPLOYMENT.yaml']
 
@@ -49,18 +46,19 @@ images:
 #     - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
 #     - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
 
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args:
-#     - set
-#     - image
-#     # - deployment
-#     - deployment/sample-app
-#     - sample-app=gcr.io/$PROJECT_ID/image
-#   env:
-#     - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
-#     - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - set
+      - image
+      # - deployment
+      - deployment/sample-app
+      - sample-app=gcr.io/$PROJECT_ID/image:latest
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
 
-# images: ['gcr.io/$PROJECT_ID/image']
+images: 
+  - 'gcr.io/$PROJECT_ID/image:latest'
 
 # - name: gcr.io/k8s-skaffold/skaffold
   # args: ['skaffold', 'run', '-f', 'skaffold.yaml']
