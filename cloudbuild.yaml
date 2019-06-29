@@ -64,8 +64,8 @@ steps:
          '--zone', 'us-central1-a', '--project', 'ancient-vortex-243611']
 
 - name: gcr.io/k8s-skaffold/skaffold
-  # args: ['skaffold', 'run', '-f', 'skaffold.yaml']
-  args: ['skaffold', 'run']
+  args: ['skaffold', 'run', '-f', 'skaffold.yaml']
+#   args: ['skaffold', 'run']
   # args: ['run', '-p', 'gcb']
   # env:
   # - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
