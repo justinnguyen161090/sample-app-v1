@@ -11,25 +11,25 @@ steps:
 # - name: 'gcr.io/cloud-builders/docker' 
 #   args: ['push', 'gcr.io/$PROJECT_ID/$REPO_NAME:$BUILD_ID']
 
-  - name: 'gcr.io/cloud-builders/docker'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - | 
-        docker pull gcr.io/$PROJECT_ID/image:latest || exit 0
+  # - name: 'gcr.io/cloud-builders/docker'
+  #   entrypoint: 'bash'
+  #   args:
+  #     - '-c'
+  #     - | 
+  #       docker pull gcr.io/$PROJECT_ID/image:latest || exit 0
 
-  - name: 'gcr.io/cloud-builders/docker'
-    args: 
-      - 'build'
-      - '-t' 
-      - 'gcr.io/$PROJECT_ID/image:latest'
+  # - name: 'gcr.io/cloud-builders/docker'
+  #   args: 
+  #     - 'build'
+  #     - '-t' 
+  #     - 'gcr.io/$PROJECT_ID/image:latest'
       # - '-f' 
       # - 'Dockerfile'
-      - '--cache-from' 
-      - 'gcr.io/$PROJECT_ID/image:latest'
+      # - '--cache-from' 
+      # - 'gcr.io/$PROJECT_ID/image:latest'
       # - '--target'
       # - 'builder'
-      - '.'
+      # - '.'
 # - name: 'gcr.io/cloud-builders/kubectl'
 #   args: ['apply', '-f', 'sample-app.$_DEPLOYMENT.yaml']
 
@@ -57,12 +57,15 @@ steps:
   #     - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
   #     - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
 
-images: 
-  - 'gcr.io/$PROJECT_ID/image:latest'
+# images: 
+#   - 'gcr.io/$PROJECT_ID/image:latest'
+- name: gcr.io/k8s-skaffold/skaffold
+  args: ['gcloud', 'container', 'clusters', 'get-credentials', 'standard-cluster-1',
+         '--zone us-central1-a', '--project ancient-vortex-243611']
 
-# - name: gcr.io/k8s-skaffold/skaffold
+- name: gcr.io/k8s-skaffold/skaffold
   # args: ['skaffold', 'run', '-f', 'skaffold.yaml']
-  # args: ['skaffold', 'run']
+  args: ['skaffold', 'run']
   # args: ['run', '-p', 'gcb']
   # env:
   # - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
