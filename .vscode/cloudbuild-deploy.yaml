@@ -1,0 +1,10 @@
+steps:
+- name: gcr.io/kaniko-project/executor:latest
+  args: ["--dockerfile=Dockerfile",
+         "--destination=gcr.io/$PROJECT_ID/image"]
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/sample-app', 
+          'sample-app=gcr.io/$PROJECT_ID/image']
+  env:
+      - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
