@@ -11,6 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "moment": "2.19.3",
-    "qs": "2.2.0"
+    "qs": "6.9.3"
   }
 }
